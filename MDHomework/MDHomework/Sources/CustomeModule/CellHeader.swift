@@ -7,15 +7,20 @@
 
 import UIKit
 
-class CellHeader: UICollectionReusableView {
+final class CellHeader: UICollectionReusableView {
     
     static let identifier = "CellHeader"
+    
+    private enum CustomConstraints: CGFloat {
+        case padding1 = 1
+        case padding25 = 25
+    }
     
     // MARK: - Outlets
     
     lazy var title: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 25, weight: .bold)
+        label.font = UIFont.systemFont(ofSize: CustomConstraints.padding25.rawValue, weight: .bold)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -55,7 +60,7 @@ class CellHeader: UICollectionReusableView {
             delimiter.leftAnchor.constraint(equalTo: self.leftAnchor),
             delimiter.rightAnchor.constraint(equalTo: self.rightAnchor),
             delimiter.topAnchor.constraint(equalTo: self.topAnchor),
-            delimiter.heightAnchor.constraint(equalToConstant: 1)
+            delimiter.heightAnchor.constraint(equalToConstant: CustomConstraints.padding1.rawValue)
         ])
     }
     

@@ -7,7 +7,13 @@
 
 import UIKit
 
-class CompositionalCell: UICollectionViewCell {
+final class CompositionalCell: UICollectionViewCell {
+    
+    private enum CustomConstraints: CGFloat {
+        case padding3 = 3
+        case padding5 = 5
+        case padding10 = 10
+    }
     
     static let identifier = "CompositionalCell"
     
@@ -70,11 +76,11 @@ class CompositionalCell: UICollectionViewCell {
             image.topAnchor.constraint(equalTo: contentView.topAnchor),
             image.heightAnchor.constraint(equalTo: contentView.widthAnchor),
             
-            title.topAnchor.constraint(equalTo: image.bottomAnchor, constant: 5),
-            title.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 10),
+            title.topAnchor.constraint(equalTo: image.bottomAnchor, constant: CustomConstraints.padding5.rawValue),
+            title.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: CustomConstraints.padding10.rawValue),
             
-            count.topAnchor.constraint(equalTo: title.bottomAnchor, constant: 3),
-            count.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 10),
+            count.topAnchor.constraint(equalTo: title.bottomAnchor, constant: CustomConstraints.padding3.rawValue),
+            count.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: CustomConstraints.padding10.rawValue),
             
         ])
     }

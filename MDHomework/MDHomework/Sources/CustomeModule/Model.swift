@@ -8,9 +8,9 @@
 import Foundation
 
 struct Model: Hashable {
-    var mainTitle: String
-    var count: String?
-    var image: String
+    let mainTitle: String
+    let count: String?
+    let image: String
 }
 
 extension Model {
